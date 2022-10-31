@@ -1,0 +1,23 @@
+{
+  "name": "polyfill",
+  "version": "1.0.0",
+  "description": "Write js polyfills",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --no-warnings --ignore=node_modules/** test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stepGT/this_js_polyfill.git"
+  },
+  "author": "stepGT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stepGT/this_js_polyfill/issues"
+  },
+  "homepage": "https://github.com/stepGT/this_js_polyfill#readme",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.1.0"
+  }
+}
