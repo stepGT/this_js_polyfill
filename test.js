@@ -100,4 +100,33 @@ describe('Test polyfills', () => {
       );
     });
   });
+
+  describe('Testing flatPolyfill', () => {
+    it('Check - wrong type', () => {
+      function badFn() {
+        Array.prototype.flatPolyfill.call('asdfsd');
+      }
+      expect(badFn).to.throw(TypeError);
+    });
+
+    it('Check - without depth', () => {
+      const arr = [1, 2, [3, 4, [9]]];
+      expect(arr.flatPolyfill()).to.deep.equal(arr.flat());
+    });
+
+    it('Check - depth 1', () => {
+      const arr = [1, 2, [3, 4, [5, [6]], [9, 10]]];
+      expect(arr.flatPolyfill(1)).to.deep.equal(arr.flat(1));
+    });
+
+    it('Check - depth 2', () => {
+      const arr = [1, 2, [3, 4, [5, 6]]];
+      expect(arr.flatPolyfill(2)).to.deep.equal(arr.flat(2));
+    });
+
+    it('Check - depth Infinity', () => {
+      const arr = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+      expect(arr.flatPolyfill(Infinity)).to.deep.equal(arr.flat(Infinity));
+    });
+  });
 });
